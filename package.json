@@ -1,5 +1,5 @@
 {
-  "name": "@co/typescript-rest-swagger",
+  "name": "@colter/typescript-rest-swagger",
   "version": "1.1.7",
   "description": "Generate Swagger files from a typescript-rest project",
   "keywords": [
@@ -78,6 +78,9 @@
   },
   "engines": {
     "node": ">=6.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "engineStrict": true
 }
