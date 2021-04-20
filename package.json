@@ -1,5 +1,5 @@
 {
-  "name": "typescript-rest-swagger",
+  "name": "@co/typescript-rest-swagger",
   "version": "1.1.6",
   "description": "Generate Swagger files from a typescript-rest project",
   "keywords": [
@@ -26,7 +26,7 @@
     "test:coverage": "cross-env NODE_ENV=test jest --config ./test/jest.config.js --coverage --coverageReporters=text-lcov",
     "tsc": "tsc"
   },
-  "author": "Thiago da Rosa de Bustamante <trbustamante@gmail.com>",
+  "author": "colter <89688563@qq.com>",
   "license": "MIT",
   "dependencies": {
     "argparse": "^1.0.10",

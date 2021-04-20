@@ -65,6 +65,12 @@ export function Example<T>(example: T): any {
 export function Tags(...values: Array<string>): any {
   return () => { return; };
 }
+export function Summary(...values: Array<string>): any {
+  return () => { return; };
+}
+export function Description(...values: Array<string>): any {
+  return () => { return; };
+}
 
 /**
  * Document the method or class comsumes property in generated swagger docs

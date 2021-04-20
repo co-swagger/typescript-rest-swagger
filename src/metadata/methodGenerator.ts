@@ -1,7 +1,7 @@
 import * as pathUtil from 'path';
 import * as ts from 'typescript';
 import { getDecorators } from '../utils/decoratorUtils';
-import { getJSDocDescription, getJSDocTag, isExistJSDocTag } from '../utils/jsDocUtils';
+import { isExistJSDocTag } from '../utils/jsDocUtils';
 import { normalizePath } from '../utils/pathUtils';
 import { EndpointGenerator } from './endpointGenerator';
 import { Method, ResponseData, ResponseType, Type } from './metadataGenerator';
@@ -39,7 +39,8 @@ export class MethodGenerator extends EndpointGenerator<ts.MethodDeclaration> {
         const methodMetadata = {
             consumes: this.getDecoratorValues('Consumes'),
             deprecated: isExistJSDocTag(this.node, 'deprecated'),
-            description: getJSDocDescription(this.node),
+            description: this.getDecoratorValues('Description').join(','),
+            // description: getJSDocDescription(this.node),
             method: this.method,
             name: identifier.text,
             parameters: this.buildParameters(),
@@ -47,7 +48,8 @@ export class MethodGenerator extends EndpointGenerator<ts.MethodDeclaration> {
             produces: (this.getDecoratorValues('Produces') ? this.getDecoratorValues('Produces') : this.getDecoratorValues('Accept')),
             responses: responses,
             security: this.getSecurity(),
-            summary: getJSDocTag(this.node, 'summary'),
+            summary: this.getDecoratorValues('Summary').join(','),
+            // summary: getJSDocTag(this.node, 'summary'),
             tags: this.getDecoratorValues('Tags'),
             type: type
         };
